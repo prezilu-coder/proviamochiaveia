@@ -12,7 +12,4 @@ jobs:
       - name: Interroga Gemini
         env:
           GEMINI_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          curl -X POST "https://googleapis.com{GEMINI_KEY}" \
-          -H "Content-Type: application/json" \
-          -d '{"contents": [{"parts":[{"text": "ciao"}]}]}'
+        run: curl -X POST "https://googleapis.com{GEMINI_KEY}" -H "Content-Type: application/json" -d '{"contents":[{"parts":[{"text":"ciao"}]}]}'
