@@ -12,7 +12,9 @@ jobs:
       - name: Interroga Gemini
         env:
           GEMINI_KEY: ${{ secrets.GEMINI_API_KEY }}
+          API_HOST: "generativelanguage.googleapis.com"
+          API_PATH: "/v1beta/models/gemini-2.5-flash:generateContent"
         run: |
-          curl -X POST "https://googleapis.com" \
+          curl -X POST "https://${API_HOST}${API_PATH}?key=${GEMINI_KEY}" \
           -H "Content-Type: application/json" \
           -d '{"contents": [{"parts":[{"text": "ciao"}]}]}'
